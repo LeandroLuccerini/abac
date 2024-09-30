@@ -1,0 +1,7 @@
+services:
+  php:
+    image: abac
+    build: ./
+    tty: true
+    volumes:
+      - ../:/home/utente/abac
