@@ -10,7 +10,8 @@
   "license": "MIT",
   "autoload": {
     "psr-4": {
-      "Szopen\\Abac\\": "src/"
+      "Szopen\\Abac\\": "src/",
+      "Test\\Szopen\\Abac\\": "test/"
     }
   },
   "authors": [
