@@ -19,4 +19,9 @@ readonly class Action
     {
         return $this->action === $action->action;
     }
+
+    public function asString(): string
+    {
+        return $this->action;
+    }
 }
