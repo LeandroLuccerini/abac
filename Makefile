@@ -15,3 +15,6 @@ enter:
 
 tests:
 	docker compose -p $(PROJECT)  exec -u $(PHP_USER) -w /home/$(PHP_USER)/${PROJECT} php ./vendor/bin/phpunit
+
+phpstan:
+	docker compose -p $(PROJECT)  exec -u $(PHP_USER) -w /home/$(PHP_USER)/${PROJECT} php ./vendor/bin/phpstan
