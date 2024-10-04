@@ -12,3 +12,6 @@ down:
 
 enter:
 	docker compose -p $(PROJECT)  exec -u $(PHP_USER) -w /home/$(PHP_USER)/${PROJECT} php /bin/zsh
+
+tests:
+	docker compose -p $(PROJECT)  exec -u $(PHP_USER) -w /home/$(PHP_USER)/${PROJECT} php ./vendor/bin/phpunit
