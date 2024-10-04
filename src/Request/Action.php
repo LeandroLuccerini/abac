@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Szopen\Abac;
+namespace Szopen\Abac\Request;
 
 use InvalidArgumentException;
 
