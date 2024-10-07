@@ -22,7 +22,7 @@ readonly class DenyIndeterminateDecisionPolicyEnforcementPoint implements Policy
             new Request($subject, $action, $resource)
         );
 
-        if ($decision === Decision::DENY || $decision === Decision::INDETERMINATE) {
+        if ($decision === Effect::DENY || $decision === Effect::INDETERMINATE) {
             throw AuthorizationFailedException::actionNotAllowed($action);
         }
     }

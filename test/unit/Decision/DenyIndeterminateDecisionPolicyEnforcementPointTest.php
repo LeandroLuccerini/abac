@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Test\Szopen\Abac\unit\Decision;
 
 use PHPUnit\Framework\TestCase;
-use Szopen\Abac\Decision\Decision;
+use Szopen\Abac\Decision\Effect;
 use Szopen\Abac\Decision\DenyIndeterminateDecisionPolicyEnforcementPoint;
 use Szopen\Abac\Exception\AuthorizationFailedException;
 use Szopen\Abac\Request\Action;
@@ -18,7 +18,7 @@ class DenyIndeterminateDecisionPolicyEnforcementPointTest extends TestCase
 {
     public function testAuthorizeRaisesExceptionIfPdpDeniesRequest(): void
     {
-        $pdp = new DesiredValuePolicyDecisionPointStub(Decision::DENY);
+        $pdp = new DesiredValuePolicyDecisionPointStub(Effect::DENY);
         $pep = new DenyIndeterminateDecisionPolicyEnforcementPoint($pdp);
 
         $this->expectException(AuthorizationFailedException::class);
@@ -36,7 +36,7 @@ class DenyIndeterminateDecisionPolicyEnforcementPointTest extends TestCase
 
     public function testAuthorizeRaisesExceptionIfPdpIndeterminatesRequest(): void
     {
-        $pdp = new DesiredValuePolicyDecisionPointStub(Decision::INDETERMINATE);
+        $pdp = new DesiredValuePolicyDecisionPointStub(Effect::INDETERMINATE);
         $pep = new DenyIndeterminateDecisionPolicyEnforcementPoint($pdp);
 
         $this->expectException(AuthorizationFailedException::class);
@@ -54,7 +54,7 @@ class DenyIndeterminateDecisionPolicyEnforcementPointTest extends TestCase
 
     public function testAuthorizeAllowsActionIfPdpAllowsRequest(): void
     {
-        $pdp = new DesiredValuePolicyDecisionPointStub(Decision::ALLOW);
+        $pdp = new DesiredValuePolicyDecisionPointStub(Effect::ALLOW);
         $pep = new DenyIndeterminateDecisionPolicyEnforcementPoint($pdp);
 
         $pep->authorize(

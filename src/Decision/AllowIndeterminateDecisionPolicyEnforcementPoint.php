@@ -22,7 +22,7 @@ readonly class AllowIndeterminateDecisionPolicyEnforcementPoint implements Polic
             new Request($subject, $action, $resource)
         );
         
-        if ($decision === Decision::DENY) {
+        if ($decision === Effect::DENY) {
             throw new AuthorizationFailedException();
         }
     }

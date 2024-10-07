@@ -6,5 +6,5 @@ namespace Szopen\Abac\Decision;
 
 interface PolicyDecisionPoint
 {
-    public function evaluate(Request $request): Decision;
+    public function evaluate(Request $request): Effect;
 }
