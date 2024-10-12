@@ -6,16 +6,16 @@ namespace Szopen\Abac\Request;
 
 use InvalidArgumentException;
 
-readonly class Action
+readonly class PolicyName
 {
     public function __construct(private string $action)
     {
         if (empty(trim($this->action))) {
-            throw new InvalidArgumentException('Action cannot be empty');
+            throw new InvalidArgumentException('Policy name cannot be empty');
         }
     }
 
-    public function equal(Action $action): bool
+    public function equal(PolicyName $action): bool
     {
         return $this->action === $action->action;
     }

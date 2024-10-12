@@ -5,16 +5,16 @@ declare(strict_types=1);
 namespace Szopen\Abac\Exception;
 
 use Exception;
-use Szopen\Abac\Request\Action;
+use Szopen\Abac\Request\PolicyName;
 
 class AuthorizationFailedException extends Exception
 {
-    public static function actionNotAllowed(Action $action): self
+    public static function actionNotAllowed(PolicyName $action): self
     {
         $e = new self;
 
         $e->message = sprintf(
-            'Action "%s" is not allowed',
+            'Policy "%s" is not allowed',
             $action->asString()
         );
 
